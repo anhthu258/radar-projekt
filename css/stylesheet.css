@@ -213,11 +213,20 @@ header img{
     width: 25rem;
     padding-top: 3rem;
 }
+h2, h3, p{
+    font-family: futura-pt, sans-serif;
+    font-weight: 800;
+    font-style: normal;
+}
 
 p{
-    font-family: futura-pt, sans-serif;
     font-weight: 100;
-    font-style: normal;
+    color: var(--dark-grey);
+}
+
+h2{
+    background-color: var(--yellow);
+    padding: 30px;
 }
 
 #om-os{
@@ -239,7 +248,125 @@ height: 20rem;
     font-size: 1.4rem;
 }
 
-#live-arkiv img{
+#om-os span{
+    display: block;
+    padding-top: 20px;
+}
+
+#live-arkiv {
+    position: relative; /* Ensures the container is positioned relative for its children */
+    background-image: url(../img/papir-bg-hvid.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 40rem;
+    overflow: hidden;
+}
+
+#musik-plade {
     position: absolute;
-    left: 100;
+    top: calc(-7%); /* Adjust for proportionate spacing based on viewport */
+    left: calc(-15vw); /* Makes the element responsive to viewport width */
+    z-index: 1;
+    overflow: hidden;
+    max-height: fit-content;
+    width: 45rem;
+}
+
+#live-arkiv section{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: var(--light-grey);
+}
+
+#live-arkiv section div{
+    padding: 1rem;
+}
+
+footer{
+    background-image: url(../img/papir-bg-gul.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    height: 20rem;
+}
+
+footer img{
+    height: 20rem;
+}
+
+footer p{
+font-weight: 600;
+}
+
+
+
+
+
+
+/* General Container Styling */
+.horizontal-scroll-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+}
+
+/* Scroll Wrapper for Horizontal Layout */
+.scroll-wrapper {
+    display: flex;
+    flex-direction: row;
+    scroll-snap-type: x mandatory; /* Enables horizontal snapping */
+    overflow-x: auto; /* Enables horizontal scrolling */
+    scroll-behavior: smooth; /* Smooth scrolling */
+    width: 100%; /* Full width of the container */
+    height: 100%; /* Full height of the container */
+}
+
+/* Scrollable Items */
+.scroll-item {
+    scroll-snap-align: start; /* Ensures items snap to the start */
+    flex: 0 0 100%; /* Each item takes 100% of the container width */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.scroll-item img {
+    max-height: 60%;
+    max-width: 80%;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Image shadow */
+}
+
+/* Navigation Buttons */
+.scroll-button {
+    position: fixed;
+    z-index: 10;
+    background: #222;
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%);
+}
+
+.scroll-button:hover {
+    background: #555;
+}
+
+.scroll-button.left {
+    left: 10px; /* Fixed to the left */
+}
+
+.scroll-button.right {
+    right: 10px; /* Fixed to the right */
 }
