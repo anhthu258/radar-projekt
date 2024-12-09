@@ -4,10 +4,45 @@
     padding: 0;
 }
 
+:root{
+    --light-grey:#82808f;
+    --dark-grey:#222222;
+    --white:#fff;
+    --yellow:#fcd04e;
+}
+
 header{
-    background-image: url(../img/beton-m-graa.png);
+    background-image: url(../img/header-bg.png);
+    background-size: cover;
 }
 
 header img{
-    width: 20%;
+    width: 23rem;
+    padding: 2.7rem;
+}
+
+#om-os{
+display: flex;
+flex-direction: row-reverse;
+align-items: center;
+background-image: url(../img/radar-bg.png);
+height: 20rem;
+}
+
+#om-os img{
+    height: 20rem;
+}
+
+#om-os p{
+    color: var(--white);
+    font-family: futura-pt, sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    padding: 5px;
+    font-size: 1.4rem;
+}
+
+#live-arkiv img{
+    position: absolute;
+    left: 100;
 }
