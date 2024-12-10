@@ -93,10 +93,14 @@ body {
   width: 0;
 }
 
-.nav-bar{
-    position: fixed; /*Sørg for at burgermenuen er placeres på topen af andre elementer i main*/
-    z-index: 10;
+.nav-bar {
+  position: fixed; /* Fix the menu to the viewport */
+  top: 0; /* Align the top edge of the viewport */
+  left: 0; /* Align the left edge of the viewport */
+  z-index: 10; /* Ensure it's above other elements */
+  width: fit-content; /* Adjust to fit its content */
 }
+
 
 .sidebar {
   transition: translate var(--animation-timing);
@@ -105,7 +109,6 @@ body {
   padding-top: calc(var(--hamburger-height) + var(--hamburger-margin) + 1rem);
   background-color: var(--yellow);
   color: var(--white);
-  max-width: 25rem;
   min-height: 100vh;
   margin-right: 10px;
 }
@@ -146,7 +149,6 @@ nav ul li a{             /*Styling af links i navigationsbar*/
 
 nav ul li a:hover{       /*Styling af navigationsbar under hover tilstand*/
   background: var(--dark-grey);
-  color: var(--orange);
 }
 
 nav ul li ul{            /*Styling af dropdown menu i navbar*/
@@ -161,46 +163,10 @@ nav ul li ul li{         /*Styling af list item i dropdown menu*/
   border-top: 0.5px solid var(--dark-grey);
 }
 
-nav ul li ul li ul{      /*Styling af nested dropdown menu*/
-  left: 12.5rem;
-  top: 0;
-}
-
 nav ul li:focus-within > ul,
 nav ul li:hover > ul{     /*Definere display af dropdown menu på hover eller fokus*/
   display: block;
   z-index: 10;                     /*Styrer stablingrækkefølge højere værdi ligger øverst, i denne tilfælde ligger alt under ul øverst for alle andre elementer*/
-}
-
-header::after {                     /*Fjern floats efter header content*/
-  content: "";
-  display: table;
-  clear: both;
-}
-
-nav ul.sub-menus{
-height: auto;
-overflow: hidden;
-width: 170px;
-position: absolute;
-z-index: 10;
-display: none;
-}
-nav ul.sub-menus li {
-display: block;
-text-align: left;
-width: 100%;
-}
-nav ul.sub-menus a {
-color: var(--dark-grey);
-font-size: 1.25rem;
-}
-nav li:hover ul.sub-menus {
-display: block
-}
-nav ul.sub-menus a:hover{
-background: var(--dark-grey);
-color: var(--white);
 }
 
 header{
@@ -312,8 +278,8 @@ font-weight: 600;
     align-items: center;
     position: relative;
     overflow: hidden;
-    width: 100vw; /* Full viewport width */
-    height: 100vh; /* Full viewport height */
+    width: 90vw; /* Full viewport width */
+    height: 90vh; /* Full viewport height */
 }
 
 /* Scroll Wrapper for Horizontal Layout */
@@ -323,13 +289,13 @@ font-weight: 600;
     scroll-snap-type: x mandatory; /* Enables horizontal snapping */
     overflow-x: auto; /* Enables horizontal scrolling */
     scroll-behavior: smooth; /* Smooth scrolling */
-    width: 100%; /* Full width of the container */
+    width: 50%; /* Full width of the container */
     height: 100%; /* Full height of the container */
 }
 
 /* Scrollable Items */
 .scroll-item {
-    scroll-snap-align: start; /* Ensures items snap to the start */
+    scroll-snap-align: end; /* Ensures items snap to the start */
     flex: 0 0 100%; /* Each item takes 100% of the container width */
     display: flex;
     flex-direction: column;
@@ -337,30 +303,27 @@ font-weight: 600;
     align-items: center;
 }
 
+.scroll-item div{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 .scroll-item img {
     max-height: 60%;
     max-width: 80%;
     margin-bottom: 1rem;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Image shadow */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Navigation Buttons */
 .scroll-button {
-    position: fixed;
-    z-index: 10;
-    background: #222;
-    color: white;
-    text-decoration: none;
+    position: absolute;
+    z-index: 9;
     padding: 0.5rem 1rem;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    top: 50%; /* Center vertically */
+    top: 55%; /* Center vertically */
     transform: translateY(-50%);
-}
-
-.scroll-button:hover {
-    background: #555;
 }
 
 .scroll-button.left {
