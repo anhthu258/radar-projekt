@@ -67,40 +67,23 @@
         </article>
         <article id="live-arkiv">
             <img id="musik-plade" src="./img/musik-plade.png" alt="musik plade">
-            <aside class="horizontal-scroll-container">
-                <a href="#item1" class="scroll-button left"><img src="./img/icon/left-button.png" alt="icon for galleri"></a>
-                <a href="#item2" class="scroll-button right"><img src="./img/icon/right-button.png" alt="icon for galleri"></a>
-            
-                <section class="scroll-wrapper">
-                    <article id="item1" class="scroll-item">
-                        <img src="./img/sorthandsk.jpg" alt="billede af sorthandsk band i sort og hvid">
-                        <h2>7.dec</h2>
-                        <div>
-                            <h3>SORTHANDSK</h3>
-                            <p>De leger med gerenrne og kredser om Marwans lyriske genistreger. <a href="#">Læs mere om bandet</a></p>
-                            <P>RAP/METAL/LYRIK</P>
-                        </div>
-                    </article>
-                    <article id="item2" class="scroll-item">
-                        <img src="./img/joe-n-the-shitboys.jpg" alt="billede af joe & the shitboys band i sort og hvid">
-                        <h2>8.dec</h2>
-                        <div>
-                            <h3>JOE & THE SHITBOYS</h3>
-                            <p>Så er der adventspunk for alle pengene, når Joe & The Shitboys indtager Radar søndag den 8. december.<a href="#">Læs mere om bandet</a></p>
-                            <P>PUNK</P>
-                        </div>
-                    </article>
-                    <article id="item3" class="scroll-item">
-                        <img src="./img/i-think-ur-awsome.jpg" alt="billede af I Think You're Awesome band i sort og hvid">
-                        <h2>8.dec</h2>
-                        <div>
-                            <h3>I THINK YOU'RE AWESOME</h3>
-                            <p>Kom med til 10-års jubilæumskoncert med I Think You're Awsomes ”Løft Mig Op Så Jeg Kan Nå”. <a href="#">Læs mere om bandet</a></p>
-                            <P>JAZZ</P>
-                        </div>
-                    </article>
-                </section>
-            </aside>
+            <section class="slider">
+                <div class="images">
+                    <input type="radio" name="slide" id="img-1" checked>
+                    <input type="radio" name="slide" id="img-2">
+                    <input type="radio" name="slide" id="img-3">
+        
+                    <img src="./img/sorthandsk.jpg" class="m-1" alt="img-1">
+                    <img src="./img/joe-n-the-shitboys.jpg" class="m-2" alt="img-2">
+                    <img src="./img/i-think-ur-awsome.jpg" class="m-3" alt="img-3">
+                </div>
+                <aside class="dot">
+                    <label for="img-1"></label>
+                    <label for="img-2"></label>
+                    <label for="img-3"></label>
+                </aside>
+            </section>
+
         </article>
     </main>
     <footer>

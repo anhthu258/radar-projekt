@@ -94,13 +94,11 @@ body {
 }
 
 .nav-bar {
-  position: fixed; /* Fix the menu to the viewport */
-  top: 0; /* Align the top edge of the viewport */
-  left: 0; /* Align the left edge of the viewport */
-  z-index: 10; /* Ensure it's above other elements */
-  width: fit-content; /* Adjust to fit its content */
+  position: fixed;    /*Sørge for at navbar er konstant*/
+  top: 0;
+  left: 10; 
+  z-index: 10; 
 }
-
 
 .sidebar {
   transition: translate var(--animation-timing);
@@ -149,6 +147,7 @@ nav ul li a{             /*Styling af links i navigationsbar*/
 
 nav ul li a:hover{       /*Styling af navigationsbar under hover tilstand*/
   background: var(--dark-grey);
+  color: var(--yellow);
 }
 
 nav ul li ul{            /*Styling af dropdown menu i navbar*/
@@ -266,55 +265,49 @@ footer p{
 font-weight: 600;
 }
 
-
-
-
-
-
-/* General Container Styling */
-.horizontal-scroll-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    width: 90vw; /* Full viewport width */
-    height: 90vh; /* Full viewport height */
+.slider{
+  position: relative;
+  width: 60%;
+  overflow: hidden;
 }
-
-/* Scroll Wrapper for Horizontal Layout */
-.scroll-wrapper {
-    display: flex;
-    flex-direction: row;
-    scroll-snap-type: x mandatory; /* Enables horizontal snapping */
-    overflow-x: auto; /* Enables horizontal scrolling */
-    scroll-behavior: smooth; /* Smooth scrolling */
-    width: 50%; /* Full width of the container */
-    height: 100%; /* Full height of the container */
-}
-
-/* Scrollable Items */
-.scroll-item {
-    scroll-snap-align: end; /* Ensures items snap to the start */
-    flex: 0 0 100%; /* Each item takes 100% of the container width */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.scroll-item div{
+.images{
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  width: 100%;
+}
+.images img{
+  height: 500px;
+  width: 100%;
+  transition: all 0.15s ease;
+}
+.images input{
+  display: none;
+}
+.dot{
+  display: flex;
+  justify-content: center;
+  margin: 5px;
+}
+.dot label{
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 3px solid var(--white);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  margin: 5px;
+}
+.dot label:hover{
+  background: var(--white);
 }
 
-.scroll-item img {
-    max-height: 60%;
-    max-width: 80%;
-    margin-bottom: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+#img-1:checked ~ .m-1{
+  margin-left: 0;
+}
+#img-2:checked ~ .m-2{
+  margin-left: -100%;
+}
+#img-3:checked ~ .m-3{
+  margin-left: -200%;
 }
 
 /* Navigation Buttons */
