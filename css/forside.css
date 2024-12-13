@@ -169,29 +169,30 @@ nav ul li:hover > ul{     /*Definere display af dropdown menu på hover eller fo
 }
 
 header{
-    background-image: url(../img/header-bg.webp);
-    background-size: cover;
-    height: 15.625rem;
+  background-image: url(../img/header-bg.webp);
+  background-size: cover;
+  height: 15.625rem;
 }
 
 header img{
-    width: 25rem;
-    padding-top: 3rem;
+  width: 25rem;
+  padding-top: 3rem;
 }
+
 h2, h3, p{
-    font-family: futura-pt, sans-serif;
-    font-weight: 800;
-    font-style: normal;
+  font-family: futura-pt, sans-serif;
+  font-weight: 800;
+  font-style: normal;
 }
 
 p{
-    font-weight: 100;
-    color: var(--dark-grey);
+  font-weight: 100;
+  color: var(--dark-grey);
 }
 
 h2{
-    background-color: var(--yellow);
-    padding: 30px;
+  background-color: var(--yellow);
+  padding: 30px;
 }
 
 #om-os{
@@ -203,7 +204,7 @@ height: 20rem;
 }
 
 #om-os img{
-    height: 20rem;
+  height: 20rem;
 }
 
 main{
@@ -272,7 +273,7 @@ main{
   max-width: 100%; /* Sørg for at billedet er responsive ved at give den en max-width med % */
   width: 40rem;
   top: -5vh;
-  left: 150vh;
+  left: 145vh;
 }
 
 #rec h2{

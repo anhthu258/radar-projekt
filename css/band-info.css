@@ -6,7 +6,7 @@
 
 body {
   margin: 0;
-  background-image: url(../img/beton-hvid.webp);
+  background-image: url(../img/beton-m-graa.webp);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -173,78 +173,138 @@ body {
   }
   
   header{
-      background-image: url(../img/header-bg.webp);
-      background-size: cover;
-      height: 15.625rem;
+    background-image: url(../img/header-bg.webp);
+    background-size: cover;
+    height: 15.625rem;
   }
   
   header img{
-      width: 25rem;
-      padding-top: 3rem;
+    width: 25rem;
+    padding-top: 3rem;
   }
-  h2, h3, p{
-      font-family: futura-pt, sans-serif;
-      font-weight: 800;
-      font-style: normal;
+
+  h2, h3, h4, p{
+    font-family: futura-pt, sans-serif;
+    font-weight: 800;
+    font-style: normal;
+  }
+
+  a{
+    text-decoration: none;
+    color: var(--dark-grey);
+    cursor: pointer;
+    width: fit-content;
   }
   
-  p{
-      font-weight: 100;
-      color: var(--dark-grey);
+  #info p{
+    font-weight: 100;
+    color: var(--dark-grey);
+    background-color: var(--yellow);
+    width: auto; /* Let the content adjust naturally */
+    max-width: 100%; /* Prevent overflow */
+    padding: 1rem;
+    box-sizing: border-box; /* Ensure padding does not affect width */
   }
   
   h2{
     font-size: 4.5rem;
+    color: var(--white);
   }
+
+  h4{
+    font-size: 1.5rem;
+    font-weight: 200;
+    color: var(--yellow);
+    }
+
+h3{
+    font-size: 2.5rem;
+    background-color: var(--yellow);
+    width: fit-content;
+    padding: 1rem;
+    box-shadow: 20px 20px rgb(131, 131, 131);
+}
+
+h3:hover{
+    background-color: var(--dark-grey);
+    color: var(--yellow);
+}
+
+#sorthandsk{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+#sorthandsk img{
+    position: absolute;
+    max-width: 100%;
+    height: 40rem;
+    top: -110%;
+    left: 75%;
+    z-index: 0;
+}
+
+#info{
+    width: 150vh;
+    padding-left: 1rem;
+}
+
+#button{
+    margin: 6rem 5rem 0 5rem;
+    z-index: 1;
+}
 
   #wrapper{
     min-height: 100vh;
-  }
-
-  main{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 14rem;
-    position: relative;
-  }
-
-  #collage{
-    position: absolute;
-    bottom: 10px;
-    right: 1450px;
-    rotate: 20deg;
-    width: 35rem;
-  }
-
-  article p{
-    font-size: 2rem;
-    font-weight: 500;
-    background-color: var(--yellow);
-    width: fit-content;
-    padding: 2rem;
-    box-shadow: 20px 20px rgb(20, 20, 20);
-}
-
-  article a{
-    text-decoration: none;
-    width: fit-content;
     overflow: hidden;
   }
 
-footer{
-  background-image: url(../img/papir-bg-gul.webp);
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: flex;
-  align-items: center;
-  height: 20rem;
-}
+  #base{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 29rem 0 1rem;
+  }
 
-footer img{
-  height: 20rem;
-}
+  #base h2{
+    font-size: 2.5rem;
+  }
 
-footer p{
-  font-weight: 600;
-}
+  #base p{
+    color: var(--white);
+    font-weight: 200;
+    font-size: 1.5rem;
+  }
+
+  #band{
+    background-image: url(../img/sorthandsk.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 70vh;
+  }
+
+  #overskrift{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer{
+    background-image: url(../img/papir-bg-gul.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    height: 20rem;
+  }
+  
+  footer img{
+    height: 20rem;
+  }
+  
+  footer p{
+    font-weight: 600;
+  }
