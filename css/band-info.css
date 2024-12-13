@@ -200,10 +200,11 @@ body {
     font-weight: 100;
     color: var(--dark-grey);
     background-color: var(--yellow);
-    width: auto; /* Let the content adjust naturally */
-    max-width: 100%; /* Prevent overflow */
-    padding: 1rem;
-    box-sizing: border-box; /* Ensure padding does not affect width */
+    width: auto;
+    max-width: 100%;
+    margin: 0;
+    padding: 1.5rem;
+    font-size: 1.5rem;
   }
   
   h2{
