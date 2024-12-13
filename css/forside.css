@@ -206,46 +206,88 @@ height: 20rem;
     height: 20rem;
 }
 
+main{
+  min-height: 100vh;
+}
+
 #om-os p{
-    color: var(--white);
-    padding: 5px;
-    margin-left: 90px;
-    font-size: 1.4rem;
+  color: var(--white);
+  padding: 5px;
+  margin-left: 90px;
+  font-size: 1.4rem;
 }
 
 #om-os span{
-    display: block;
-    padding-top: 20px;
+  display: block;
+  padding-top: 20px;
 }
 
 #live-arkiv {
-    position: relative; /* Ensures the container is positioned relative for its children */
-    background-image: url(../img/papir-bg-hvid.webp);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 40rem;
-    overflow: hidden;
+  position: relative; /* Ensures the container is positioned relative for its children */
+  background-image: url(../img/papir-bg-hvid.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 40rem;
+  overflow: hidden;
 }
 
 #musik-plade {
-    position: absolute;
-    top: calc(-7%); /* Adjust for proportionate spacing based on viewport */
-    left: calc(-15vw); /* Makes the element responsive to viewport width */
-    z-index: 1;
-    overflow: hidden;
-    max-height: fit-content;
-    width: 45rem;
+  position: absolute;
+  top: calc(-7%); /* Adjust for proportionate spacing based on viewport */
+  left: calc(-15vw); /* Makes the element responsive to viewport width */
+  z-index: 1;
+  overflow: hidden;
+  max-height: fit-content;
+  width: 45rem;
 }
 
 #live-arkiv section{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: var(--light-grey);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--light-grey);
 }
 
 #live-arkiv section div{
-    padding: 1rem;
+  padding: 1rem;
+}
+
+#rec {
+  background-color: var(--light-grey);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column; /* Stack content vertically on smaller screens */
+  gap: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+#rec div {
+  max-width: 75%; /* Ensures content doesn't overflow */
+  margin: 0 0;
+}
+
+#rec img {
+  position: absolute;
+  max-width: 100%; /* Sørg for at billedet er responsive ved at give den en max-width med % */
+  width: 40rem;
+  top: -5vh;
+  left: 150vh;
+}
+
+#rec h2{
+  width: fit-content;
+  box-shadow: 10px 10px rgb(20, 20, 20);
+  font-size: 2.5rem;
+}
+
+#rec p{
+  margin: 0.5rem 0 0 0;
+}
+
+#rec section{
+  padding-left: 2rem;
+
 }
 
 footer{
