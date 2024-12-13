@@ -278,7 +278,7 @@ main{
 
 #rec h2{
   width: fit-content;
-  box-shadow: 10px 10px rgb(20, 20, 20);
+  box-shadow: 20px 20px rgb(31, 31, 31);
   font-size: 2.5rem;
 }
 

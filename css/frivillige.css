@@ -24,7 +24,7 @@ body {
     --foreground: var(--yellow);
     --background: var(--dark-grey);
     --hamburger-margin: 8px;
-    --animation-timing: 200ms ease-in-out;
+    --animation-timing: 200ms ease-in-out;      /*animation til burgermenuen*/
   
     /* simpel math - højde er lige med 3x bar height og 2x vores gap. Calc variable regner denne regnestyk ud for os */
     --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
@@ -187,6 +187,24 @@ body {
     font-family: futura-pt, sans-serif;
     font-weight: 800;
     font-style: normal;
+  }
+
+  h2{
+    font-size: 3rem;
+    color: var(--dark-grey);
+    background-color: var(--yellow);
+    width: fit-content;
+    padding: 1rem;
+    box-shadow: 20px 20px rgb(31, 31, 31);
+  }
+
+  p{
+    font-size: 1.5rem;
+    font-weight: 200;
+  }
+
+  article{
+    margin: 1rem;
   }
 
   #picture{
