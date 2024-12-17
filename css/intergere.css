@@ -6,10 +6,6 @@
 
 body {
   margin: 0;
-  background-image: url(../img/papir-bg-graa.webp);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
    /* Variable der gøre kodening af burgermenuen bliver mere responsive */
@@ -188,8 +184,67 @@ body {
     font-weight: 800;
     font-style: normal;
     color: var(--dark-grey);
+    margin: 0 1rem 0 1rem;
+  }
+
+  h2{
+    font-size: 3rem;
+    background-color: var(--yellow);
+    width: fit-content;
+    padding: 1rem;
+    box-shadow: 20px 20px rgb(31, 31, 31);
+  }
+
+  h3{
+    font-size: 2rem;
+    margin: 0;
+    padding: 1rem;
+  }
+
+  p{
+    font-size: 1.5rem;
+    font-weight: 200;
   }
 
   #wrapper{
     min-height: 100vh;
+  }
+
+  #podcast{
+    background-image: url(../img/papir-bg-graa.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  #blog{
+    background-image: url(../img/beton-hvid.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  #social-media{
+    background-image: url(../img/beton-m-graa.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  #social-media p{
+    color: var(--yellow);
+  }
+
+  footer{
+    background-image: url(../img/papir-bg-gul.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    height: 20rem;
+  }
+  
+  footer img{
+    height: 20rem;
+  }
+  
+  footer p{
+    font-weight: 600;
   }
