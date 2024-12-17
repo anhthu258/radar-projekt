@@ -187,16 +187,25 @@ body {
     font-family: futura-pt, sans-serif;
     font-weight: 800;
     font-style: normal;
+    color: var(--dark-grey);
   }
 
   h2{
     font-size: 3rem;
-    color: var(--dark-grey);
     background-color: var(--yellow);
     width: fit-content;
     padding: 1rem;
     box-shadow: 20px 20px rgb(31, 31, 31);
   }
+
+  h3 {
+  font-size: 2rem;
+  margin: 0;
+  background-color: var(--yellow);
+  width: fit-content;
+  padding: 1rem;
+  box-shadow: 10px 10px rgb(31,31,31);
+}
 
   p{
     font-size: 1.5rem;
@@ -205,6 +214,14 @@ body {
 
   article{
     margin: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  article p{
+    color: var(--white);
+    padding-left: 1rem;
   }
 
   #picture{
@@ -213,6 +230,19 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 70vh;
+  }
+
+  #arbejdsinfo{
+    display: flex;
+    flex-direction: row;
+  }
+
+  #arbejdsinfo p{
+    padding: 0.5rem;
+  }
+
+  #arbejdsinfo p span{
+    font-weight: bold;
   }
 
   #wrapper{

@@ -179,20 +179,27 @@ header img{
   padding-top: 3rem;
 }
 
-h2, h3, p{
+h2, h3, p, h4{
   font-family: futura-pt, sans-serif;
   font-weight: 800;
   font-style: normal;
 }
 
 p{
-  font-weight: 100;
+  font-size: 1.5rem;
+  font-weight: 200;
   color: var(--dark-grey);
 }
 
 h2{
   background-color: var(--yellow);
   padding: 30px;
+  font-size: 3rem;
+}
+
+h3{
+  font-size: 2rem;
+  margin: 0;
 }
 
 #om-os{
