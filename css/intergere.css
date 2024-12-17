@@ -189,3 +189,7 @@ body {
     font-style: normal;
     color: var(--dark-grey);
   }
+
+  #wrapper{
+    min-height: 100vh;
+  }

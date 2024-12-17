@@ -224,7 +224,6 @@ main{
   color: var(--white);
   padding: 5px;
   margin-left: 90px;
-  font-size: 1.4rem;
 }
 
 #om-os span{
@@ -250,22 +249,11 @@ main{
 }
 
 #live-arkiv {
-  position: relative; /* Ensures the container is positioned relative for its children */
   background-image: url(../img/papir-bg-hvid.webp);
   background-repeat: no-repeat;
   background-size: cover;
   height: 40rem;
   overflow: hidden;
-}
-
-#musik-plade {
-  position: absolute;
-  top: calc(-7%); /* Adjust for proportionate spacing based on viewport */
-  left: calc(-15vw); /* Makes the element responsive to viewport width */
-  z-index: 1;
-  overflow: hidden;
-  max-height: fit-content;
-  width: 45rem;
 }
 
 #live-arkiv section{
@@ -290,8 +278,8 @@ main{
 }
 
 #rec div {
-  max-width: 75%; /* Ensures content doesn't overflow */
-  margin: 0 0;
+  max-width: 75%;
+  margin: 0;
 }
 
 #rec img {
