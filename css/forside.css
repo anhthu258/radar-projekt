@@ -118,11 +118,6 @@ body {
 
 /* Navbar css */
 
-header nav {                         /*Bestemt baggrundsfarve for navigationsbar*/
-  background-color: var(--dark-grey);
-  font-family:futura-pt, sans-serif;
-}
-
 nav ul{                  /*Styling af navigationsbar*/
   list-style: none;
   width: 100%;
@@ -300,16 +295,16 @@ main{
 }
 
 footer{
-    background-image: url(../img/papir-bg-gul.webp);
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    height: 20rem;
+  background-image: url(../img/papir-bg-gul.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  height: 20rem;
 }
 
 footer img{
-    height: 20rem;
+  height: 20rem;
 }
 
 footer p{
