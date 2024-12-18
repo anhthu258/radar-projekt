@@ -227,20 +227,37 @@ main{
 }
 
 #billet-info{
-  background-image: url(../img/infographic.webp);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  height: 100rem;
+  background-image: url(../img/beton-graa.webp) ;
+  height: fit-content;
+  padding: 1rem 0 0 0;
 }
 
 #billet-info img{
-  max-width: 50%;
-  margin-left: 25%;
+  width: 40%;
+  height: fit-content;
 }
 
 #billet-info h2{
   margin: 0 3rem;
+}
+
+.title{
+  font-weight: bold;
+}
+
+#billet-info p{
+  margin: 1rem 3rem;
+  color: var(--yellow);
+}
+
+#billet-content{
+  display: flex;
+  margin-top: 3rem;
+}
+
+#billet-content span{
+  display: block;
+  margin-top: 1.5rem;
 }
 
 #live-arkiv {
@@ -281,8 +298,8 @@ main{
   position: absolute;
   max-width: 100%; /* Sørg for at billedet er responsive ved at give den en max-width med % */
   width: 40rem;
-  top: -5vh;
-  left: 145vh;
+  top: 2%;
+  left: 75%;
 }
 
 #rec p{
@@ -368,4 +385,103 @@ footer p{
 }
 #img-3:checked ~ .m-3{
   margin-left: -200%;
+}
+
+/* Medium screens (tablets) - max 1024px */
+@media screen and (max-width: 1160px) {
+
+  header img {
+    max-width: 25rem;
+  }
+
+  #om-os {
+    height: 20rem;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #om-os img{
+    display: none;
+  }
+
+  #om-os p{
+    height: fit-content;
+    font-size: 1.3rem;
+  }
+
+  h2{
+    font-size: 2rem;
+    padding: 1rem;
+  }
+
+  h3{
+    font-size: 1.5rem;
+  }
+
+  h4{
+    font-size: 1rem;
+  }
+
+  .slider{
+    width: 100%;
+  }
+
+  #rec img{
+    top: 49%;
+    left: 65%;
+    width: 35rem;
+    z-index: -0;
+  }
+}
+
+/* Small screens (mobile) - max 768px */
+@media screen and (max-width: 768px) {
+  body{
+    width: fit-content;
+  }
+
+
+  #om-os {
+    flex-direction: column;
+    height: auto;
+    align-items: center;
+  }
+
+  #rec div {
+    max-width: 100%;
+    padding: 1rem;
+  }
+
+  #rec img {
+    display: none;
+  }
+
+  #billet-content{
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
+/* Extra small screens (mobile phones) - max 480px */
+@media screen and (max-width: 480px) {
+  body {
+    font-size: 12px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #om-os p {
+    margin: 0;
+    padding: 1rem;
+  }
+
+  #rec img {
+    width: 100%;
+    left: 0;
+    margin: auto;
+  }
 }
