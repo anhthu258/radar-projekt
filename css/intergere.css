@@ -268,14 +268,33 @@ article{
   align-items: center;
   padding-top: 2rem;
 }
+
 #social-media{
   background-image: url(../img/beton-m-graa.webp);
   background-repeat: no-repeat;
   background-size: cover;
 }
 
+#media-content{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
 #social-media p{
   color: var(--yellow);
+  max-width: 60%;
+}
+
+#social-media img{
+  max-width: 100%;
+  height: 25rem;
+}
+
+#media-content span{
+  display: block;
+  padding-top: 1.5rem;
 }
 
 footer{
@@ -283,14 +302,28 @@ footer{
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
-  align-items: center;
-  height: 20rem;
+  align-items: flex-end;
+  height: 16rem;
+  flex-direction: row;
+  justify-content: space-between;
 }
   
-footer img{
-  height: 20rem;
+#logo{
+  height: 16rem;
 }
   
 footer p{
-  font-weight: 600;
+  font-weight: 500;
+}
+
+#some-link{
+  display: flex;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#some-link img{
+  max-width: 3.5rem;
+  margin: 1rem;
 }

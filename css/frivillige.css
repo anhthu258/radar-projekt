@@ -249,14 +249,28 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
-    align-items: center;
-    height: 20rem;
+    align-items: flex-end;
+    height: 16rem;
+    flex-direction: row;
+    justify-content: space-between;
   }
-  
-  footer img{
-    height: 20rem;
+    
+  #logo{
+    height: 16rem;
   }
-  
+    
   footer p{
-    font-weight: 600;
+    font-weight: 500;
+  }
+  
+  #some-link{
+    display: flex;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  #some-link img{
+    max-width: 3.5rem;
+    margin: 1rem;
   }
