@@ -187,17 +187,16 @@ h2{
 }
 
 h3 {
+  color: var(--white);
   font-size: 2rem;
-  margin: 0;
-  background-color: var(--yellow);
+  margin: 0 1rem;
   width: fit-content;
-  padding: 1rem;
-  box-shadow: 10px 10px rgb(31,31,31);
 }
 
 p{
   font-size: 1.5rem;
   font-weight: 200;
+  margin: 1.5rem 0 1.5rem 0;
 }
 
 article{
@@ -226,7 +225,7 @@ article p{
 }
 
 #arbejdsinfo p{
-  padding: 0.5rem;
+  padding: 0.9rem;
 }
 
 #arbejdsinfo p span{
@@ -235,6 +234,7 @@ article p{
 
 #wrapper{
   min-height: 100vh;
+  overflow: hidden;
 }
 
 footer{
@@ -265,4 +265,70 @@ footer p{
 #some-link img{
   max-width: 3.5rem;
   margin: 1rem;
+}
+
+@media (max-width: 1160px) {
+
+  header img {
+    width: 25rem;
+  }
+
+  article {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  article img{
+    display: none;
+  }
+
+  #arbejdsinfo {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  #arbejdsinfo p{
+    margin: 0;
+  }
+}
+
+@media (max-width: 768px) {
+
+  header img {
+    width: 20rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  nav ul li ul {
+    position: static;
+  }
+}
+
+@media (max-width: 480px) {
+
+  header img {
+    width: 15rem;
+  }
+
+  nav ul {
+    gap: 0.5rem;
+  }
+
+  article p {
+    font-size: 1rem;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  footer p {
+    font-size: 0.9rem;
+    text-align: center;
+  }
 }

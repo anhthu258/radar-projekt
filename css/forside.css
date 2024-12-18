@@ -6,10 +6,6 @@
   padding: 0;
 }
 
-body {
-  margin: 0;
-}
-
 /* Variable der gøre kodening af burgermenuen bliver mere responsive */
 :root {
   --light-grey: #82808f;    /* farve defineres i varible for at gøre det nemmere at target */

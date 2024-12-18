@@ -152,7 +152,7 @@ nav ul li:hover > ul {
   display: block;
   z-index: 10;
 }
-  
+
 header{
   background-image: url(../img/header-bg.webp);
   background-size: cover;
@@ -193,13 +193,14 @@ p{
 
 #wrapper{
   min-height: 100vh;
+  overflow: hidden;
 }
 
 #podcast{
   background-image: url(../img/papir-bg-graa.webp);
   background-repeat: no-repeat;
   background-size: cover;
-  max-height: 30rem;
+  padding: 2rem;
 }
 
 article{
@@ -209,6 +210,21 @@ article{
 #podcast p, h3{
   margin-top: 0.5rem;
   color: var(--white);
+}
+
+#podcast h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+#podcast section {
+  margin: 1rem auto;
+  max-width: 800px;
+}
+
+#podcast p {
+  font-size: 1.2rem;
+  line-height: 1.5;
 }
 
 #blog-indlaeg{
@@ -265,6 +281,10 @@ article{
   background-size: cover;
 }
 
+#social-media section{
+  margin: 1rem auto;
+}
+
 #media-content{
   display: flex;
   flex-direction: row;
@@ -315,4 +335,57 @@ footer p{
 #some-link img{
   max-width: 3.5rem;
   margin: 1rem;
+}
+
+@media (max-width: 1159px) {
+
+  .content {
+    width: 300px;
+  }
+}
+
+@media (max-width: 767px) {
+
+  .content {
+    width: 100%;
+  }
+
+  nav ul {
+    flex-direction: column;
+    padding: 0;
+  }
+  nav ul li a {
+    font-size: 1.2rem;
+  }
+
+  #blog-wrap {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  #podcast {
+    padding: 1.5rem;
+    text-align: left;
+  }
+
+  #podcast h2 {
+    font-size: 2rem;
+  }
+
+  #podcast p {
+    font-size: 1rem;
+  }
+
+  #media-content img{
+    display: none;
+  }
+}
+
+@media (max-width: 479px) {
+  
+  nav ul li a {
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
+
 }
