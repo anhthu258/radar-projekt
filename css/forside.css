@@ -192,6 +192,7 @@ h2{
   background-color: var(--yellow);
   padding: 30px;
   font-size: 3rem;
+  margin-left: 3rem;
 }
 
 h3{
@@ -237,10 +238,6 @@ main{
   height: fit-content;
 }
 
-#billet-info h2{
-  margin: 0 3rem;
-}
-
 .title{
   font-weight: bold;
 }
@@ -258,25 +255,6 @@ main{
 #billet-content span{
   display: block;
   margin-top: 1.5rem;
-}
-
-#live-arkiv {
-  background-image: url(../img/papir-bg-hvid.webp);
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 40rem;
-  overflow: hidden;
-}
-
-#live-arkiv section{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: var(--light-grey);
-}
-
-#live-arkiv section div{
-  padding: 1rem;
 }
 
 #rec {
@@ -303,7 +281,11 @@ main{
 }
 
 #rec p{
-  margin: 0.5rem 0 0 0;
+  margin: 1.5rem 0 0 0;
+}
+
+#rec h2{
+  margin: 0;
 }
 
 #rec section{
@@ -341,50 +323,31 @@ footer p{
   margin: 1rem;
 }
 
-/*Galleri css*/
-.slider{
-  position: relative;
-  width: 60%;
+#live-arkiv {
+  background-image: url(../img/papir-bg-hvid.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 50%;
   overflow: hidden;
 }
-.images{
+
+#live-arkiv aside{
   display: flex;
-  width: 100%;
-}
-.images img{
-  height: 500px;
-  width: 100%;
-  transition: all 0.25s ease;
-}
-.images input{
-  display: none;
-}
-.dot{
-  display: flex;
-  justify-content: center;
-  margin: 5px;
-}
-.dot label{
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-  border: 3px solid var(--white);
-  cursor: pointer;
-  transition: all 0.25s ease;
-  margin: 5px;
-}
-.dot label:hover{
-  background: var(--white);
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-#img-1:checked ~ .m-1{
-  margin-left: 0;
+#live-arkiv img{
+  margin-top: 4%;
+  height: 20rem;
+  width: 100%;
+  transition: transform 0.3s ease-in-out;           /* animation for senere hover effekt */
 }
-#img-2:checked ~ .m-2{
-  margin-left: -100%;
-}
-#img-3:checked ~ .m-3{
-  margin-left: -200%;
+
+#live-arkiv img:hover{
+  cursor: pointer;
+  transform: scale(1.1);                            /* ved at hover skallere billedet 110% størrer*/
 }
 
 /* Medium screens (tablets) - max 1024px */
@@ -432,6 +395,11 @@ footer p{
     width: 35rem;
     z-index: -0;
   }
+
+  #live-arkiv aside{
+    flex-direction: column;
+  }
+
 }
 
 /* Small screens (mobile) - max 768px */
@@ -483,5 +451,9 @@ footer p{
     width: 100%;
     left: 0;
     margin: auto;
+  }
+
+  #billet-info img{
+    display: none;
   }
 }
