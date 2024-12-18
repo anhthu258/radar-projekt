@@ -2,170 +2,162 @@
 *::after,
 *::before {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --light-grey: #82808f;
+  --dark-grey: #222222;
+  --white: #fff;
+  --yellow: #fcd04e;
+  --bar-width: 60px;
+  --bar-height: 8px;
+  --hamburger-gap: 6px;
+  --foreground: var(--yellow);
+  --background: var(--dark-grey);
+  --hamburger-margin: 8px;
+  --animation-timing: 200ms ease-in-out;
+  --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
+}
+
+.hamburger-menu {
+  --x-width: calc(var(--hamburger-height) * 1.41421356237);
+  display: flex;
+  flex-direction: column;
+  gap: var(--hamburger-gap);
+  width: fit-content;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.hamburger-menu:has(input:checked) {
+  --foreground: var(--dark-grey);
+  --background: var(--yellow);
+}
+
+.hamburger-menu:has(input:focus-visible)::before,
+.hamburger-menu:has(input:focus-visible)::after,
+.hamburger-menu input:focus-visible {
+  border: 1px solid var(--background);
+  box-shadow: 0 0 0 1px var(--foreground);
+}
+
+.hamburger-menu::before,
+.hamburger-menu::after,
+.hamburger-menu input {
+  content: "";
+  width: var(--bar-width);
+  height: var(--bar-height);
+  background-color: var(--foreground);
+  border-radius: 9999px;
+  transform-origin: left center;
+  transition: opacity var(--animation-timing), width var(--animation-timing),
+    rotate var(--animation-timing), translate var(--animation-timing),
+    background-color var(--animation-timing);
+}
+
+.hamburger-menu input {
+  appearance: none;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  pointer-events: none;
+}
+
+.hamburger-menu:has(input:checked)::before {
+  transform: rotate(25deg) translate(0, calc(var(--bar-height) / -2));
+}
+
+.hamburger-menu:has(input:checked)::after {
+  transform: rotate(-25deg) translate(0, calc(var(--bar-height) / -2));
+
+}
+
+.hamburger-menu input:checked {
+  opacity: 0;
+  width: 0;
+}
+
+.nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.sidebar {
+  transition: transform var(--animation-timing);
+  transform: translateX(-100%);
+  padding: 0.5rem 0;
+  padding-top: calc(var(--hamburger-height) + var(--hamburger-margin) + 1rem);
+  background-color: var(--yellow);
+  color: var(--white);
+  min-height: 100vh;
+  margin-right: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: fit-content;
+}
+
+.hamburger-menu:has(input:checked) + .sidebar {
+  transform: translateX(0);
+}
+
+nav ul {
+  list-style: none;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+nav ul li {
+  position: relative;
+  padding: 0.2rem 1.5rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-size: 1.55rem;
+  padding: 1.5rem;
+  color: var(--dark-grey);
+  display: block;
+  background: var(--yellow);
+}
+
+nav ul li a:hover {
+  background: var(--dark-grey);
+  color: var(--yellow);
+}
+
+nav ul li ul {
+  position: static;
+  display: none;
+  z-index: 10;
+}
+
+nav ul li ul li {
+  width: 100%;
+  border-top: 0.5px solid var(--dark-grey);
+}
+
+nav ul li:focus-within > ul,
+nav ul li:hover > ul {
+  display: block;
+  z-index: 10;
 }
 
 body {
-  margin: 0;
   background-image: url(../img/beton-m-graa.webp);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
-
-   /* Variable der gøre kodening af burgermenuen bliver mere responsive */
-   :root {
-    --light-grey:#82808f;       /* farve defineres i varible for at gøre det nemmere at target */
-    --dark-grey:#222222;
-    --white:#fff;
-    --yellow:#fcd04e;
-    --bar-width: 60px;                                                                                  /* Definere breden af burgermenuen*/
-    --bar-height: 8px;                                                                                  /* Definere højden af burgermenuen*/
-    --hamburger-gap: 6px;                                                                               /* Ved at definere margin ville den skubbe andre variables under*/
-    --foreground: var(--yellow);
-    --background: var(--dark-grey);
-    --hamburger-margin: 8px;
-    --animation-timing: 200ms ease-in-out;
-  
-    /* simpel math - højde er lige med 3x bar height og 2x vores gap. Calc variable regner denne regnestyk ud for os */
-    --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
-  }
-  
-  .hamburger-menu {                                                                                    /* Laver de 2 streger ovenpå og under check boksen */
-    --x-width: calc(var(--hamburger-height) * 1.41421356237);                                          /* Denne kode regner længden af linjerne når checkboxen er krydset af ved brug af trekantsberegning. Tallet det er ganget med er bare √2*/
-    display: flex;
-    flex-direction: column;
-    gap: var(--hamburger-gap);
-    width: fit-content;
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    z-index: 2;                                                                                        /* Sørger for at burgermenuen er på toppen af sidebar */
-    cursor: pointer;
-  }
-  
-  .hamburger-menu:has(input:checked) {                                                                 /* Ændring af farve på burgermenu når den er checked */
-    --foreground: var(--dark-grey);
-    --background: var(--yellow);
-  }
-  
-  .hamburger-menu:has(input:focus-visible)::before,                                                     /* Target de 3 linjer som burgermenuen har før*/
-  .hamburger-menu:has(input:focus-visible)::after,                                                      /* Target de 3 linjer som burgermenuen har efter*/
-  .hamburger-menu input:focus-visible {                                                                 /* Target checkboxen */
-    border: 1px solid var(--background);
-    box-shadow: 0 0 0 1px var(--foreground);
-  }
-  
-  .hamburger-menu::before,
-  .hamburger-menu::after,
-  .hamburger-menu input {
-    content: "";
-    width: var(--bar-width);
-    height: var(--bar-height);
-    background-color: var(--foreground);
-    border-radius: 9999px;
-    transform-origin: left center;
-  
-    /* Denne linje animere transition når man klicker på checkboxen */
-    transition: opacity var(--animation-timing), width var(--animation-timing),
-      rotate var(--animation-timing), translate var(--animation-timing),
-      background-color var(--animation-timing);
-  }
-  
-  .hamburger-menu input {                                                                               /* Fjerner default checkbox */
-    appearance: none;
-    padding: 0;
-    margin: 0;
-    outline: none;
-    pointer-events: none;                                                                               /* Gøre sådan at man ikke kan klicke på checkboxen. Dette er gjort pga. alt interation med checkbox skal ske i gennem label. Koden har gøre at man nu kan tryk hvor som helst på .burger-menu ville man check og uncheck ens checkbox*/
-  }
-  
-  /* Forklaring af hvad linjen nedenfor target: Hvis burgermenu har en input der er checked, hvis ja target before elementet af burgermenuen */
-  .hamburger-menu:has(input:checked)::before {                                                          /* css til krydset når checkboxen er checked */
-    rotate: 45deg;
-    width: var(--x-width);
-    translate: 0 calc(var(--bar-height) / -2);                                                          /* Regner translate for y-position, og da vi ville have den som halvdel af baren ville det være division med 2 ( x-position er 0 ) */
-  }
-  
-  .hamburger-menu:has(input:checked)::after {
-    rotate: -45deg;
-    width: var(--x-width);
-    translate: 0 calc(var(--bar-height) / 2);
-  }
-  
-  .hamburger-menu input:checked {
-    opacity: 0;
-    width: 0;
-  }
-  
-  .nav-bar {
-    position: fixed;    /*Sørge for at navbar er konstant*/
-    top: 0;
-    left: 10; 
-    z-index: 10; 
-  }
-  
-  .sidebar {
-    transition: translate var(--animation-timing);
-    translate: -100%;
-    padding: 0.5rem 0rem;
-    padding-top: calc(var(--hamburger-height) + var(--hamburger-margin) + 1rem);
-    background-color: var(--yellow);
-    color: var(--white);
-    min-height: 100vh;
-    margin-right: 10px;
-  }
-  
-  /* Forklaring af hvad linjen nedenfor target: hvis vi har en burgermenu der har en input som er checked ville sidebar blive selected*/
-  .hamburger-menu:has(input:checked) + .sidebar {
-    translate: 0;
-  }
-  
-  /* Navbar css */
-  
-  nav ul{                  /*Styling af navigationsbar*/
-    list-style: none;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-  }
-  
-  nav ul li{               /*Definere position af navigationsbar listitem*/
-    position: relative;
-    padding: 1.5 1.5rem;
-  }
-  
-  nav ul li a{             /*Styling af links i navigationsbar*/
-    text-decoration: none;
-    font-size: 1.55rem;
-    padding: 1.5rem;
-    color: var(--dark-grey);
-    display: block;
-    background: var(--yellow);
-  }
-  
-  nav ul li a:hover{       /*Styling af navigationsbar under hover tilstand*/
-    background: var(--dark-grey);
-    color: var(--yellow);
-  }
-  
-  nav ul li ul{            /*Styling af dropdown menu i navbar*/
-    position: static;      /*Sørg for at dropdown menu ikke overlapper eksisterende links*/
-    display: block;
-    display: none;        /*gør dropdown menu usynlig*/
-    z-index: 10;          /*Styrer stablingrækkefølge højere værdi ligger øverst, i denne tilfælde ligger alt under ul øverst for alle andre elementer*/
-  }
-  
-  nav ul li ul li{         /*Styling af list item i dropdown menu*/
-    width: 100%;
-    border-top: 0.5px solid var(--dark-grey);
-  }
-  
-  nav ul li:focus-within > ul,
-  nav ul li:hover > ul{     /*Definere display af dropdown menu på hover eller fokus*/
-    display: block;
-    z-index: 10;                     /*Styrer stablingrækkefølge højere værdi ligger øverst, i denne tilfælde ligger alt under ul øverst for alle andre elementer*/
-  }
   
 header{
   background-image: url(../img/header-bg.webp);

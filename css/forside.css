@@ -2,32 +2,34 @@
 *::after,
 *::before {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   margin: 0;
 }
 
-    /* Variable der gøre kodening af burgermenuen bliver mere responsive */
+/* Variable der gøre kodening af burgermenuen bliver mere responsive */
 :root {
-  --light-grey:#82808f;       /* farve defineres i varible for at gøre det nemmere at target */
-  --dark-grey:#222222;
-  --white:#fff;
-  --yellow:#fcd04e;
-  --bar-width: 60px;                                                                                  /* Definere breden af burgermenuen*/
-  --bar-height: 8px;                                                                                  /* Definere højden af burgermenuen*/
-  --hamburger-gap: 6px;                                                                               /* Ved at definere margin ville den skubbe andre variables under*/
+  --light-grey: #82808f;    /* farve defineres i varible for at gøre det nemmere at target */
+  --dark-grey: #222222;
+  --white: #fff;
+  --yellow: #fcd04e;
+  --bar-width: 60px;            /* Definere breden af burgermenuen*/
+  --bar-height: 8px;            /* Definere højden af burgermenuen*/
+  --hamburger-gap: 6px;         /* Ved at definere margin ville den skubbe andre variables under*/
   --foreground: var(--yellow);
   --background: var(--dark-grey);
   --hamburger-margin: 8px;
   --animation-timing: 200ms ease-in-out;
 
-  /* simpel math - højde er lige med 3x bar height og 2x vores gap. Calc variable regner denne regnestyk ud for os */
+    /* højde er lige med 3x bar height og 2x vores gap.*/
   --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
 }
 
-.hamburger-menu {                                                                                    /* Laver de 2 streger ovenpå og under check boksen */
-  --x-width: calc(var(--hamburger-height) * 1.41421356237);                                          /* Denne kode regner længden af linjerne når checkboxen er krydset af ved brug af trekantsberegning. Tallet det er ganget med er bare √2*/
+.hamburger-menu {   /* Danner de 2 streger ovenpå og under check boksen */
+  --x-width: calc(var(--hamburger-height) * 1.41421356237);     /* udregning af "stregerne" længde efter de er checked ved brug af trekantberegning. Tallet det er ganget med er bare √2*/
   display: flex;
   flex-direction: column;
   gap: var(--hamburger-gap);
@@ -35,18 +37,18 @@ body {
   position: absolute;
   top: 10px;
   left: 10px;
-  z-index: 2;                                                                                        /* Sørger for at burgermenuen er på toppen af sidebar */
+  z-index: 2;       /* Sørger for at burgermenuen er på toppen af sidebar */
   cursor: pointer;
 }
 
-.hamburger-menu:has(input:checked) {                                                                 /* Ændring af farve på burgermenu når den er checked */
+.hamburger-menu:has(input:checked) {    /* Ændring af farve på burgermenu når den er checked */
   --foreground: var(--dark-grey);
   --background: var(--yellow);
 }
 
-.hamburger-menu:has(input:focus-visible)::before,                                                     /* Target de 3 linjer som burgermenuen har før*/
-.hamburger-menu:has(input:focus-visible)::after,                                                      /* Target de 3 linjer som burgermenuen har efter*/
-.hamburger-menu input:focus-visible {                                                                 /* Target checkboxen */
+.hamburger-menu:has(input:focus-visible)::before,   /* Target de 3 linjer som burgermenuen har før*/
+.hamburger-menu:has(input:focus-visible)::after,    /* Target de 3 linjer som burgermenuen har efter*/
+.hamburger-menu input:focus-visible {               /* Target checkboxen */
   border: 1px solid var(--background);
   box-shadow: 0 0 0 1px var(--foreground);
 }
@@ -60,32 +62,26 @@ body {
   background-color: var(--foreground);
   border-radius: 9999px;
   transform-origin: left center;
-
-  /* Denne linje animere transition når man klicker på checkboxen */
   transition: opacity var(--animation-timing), width var(--animation-timing),
     rotate var(--animation-timing), translate var(--animation-timing),
     background-color var(--animation-timing);
 }
 
-.hamburger-menu input {                                                                               /* Fjerner default checkbox */
+.hamburger-menu input {     /* Fjerner default checkbox */
   appearance: none;
   padding: 0;
   margin: 0;
   outline: none;
-  pointer-events: none;                                                                               /* Gøre sådan at man ikke kan klicke på checkboxen. Dette er gjort pga. alt interation med checkbox skal ske i gennem label. Koden har gøre at man nu kan tryk hvor som helst på .burger-menu ville man check og uncheck ens checkbox*/
+  pointer-events: none;     /* Gøre sådan at man ikke kan klicke på checkboxen. Dette er gjort pga. alt interation med checkbox skal ske i gennem label. Koden har gøre at man nu kan tryk hvor som helst på .burger-menu ville man check og uncheck ens checkbox*/
 }
 
-/* Forklaring af hvad linjen nedenfor target: Hvis burgermenu har en input der er checked, hvis ja target before elementet af burgermenuen */
-.hamburger-menu:has(input:checked)::before {                                                          /* css til krydset når checkboxen er checked */
-  rotate: 45deg;
-  width: var(--x-width);
-  translate: 0 calc(var(--bar-height) / -2);                                                          /* Regner translate for y-position, og da vi ville have den som halvdel af baren ville det være division med 2 ( x-position er 0 ) */
+.hamburger-menu:has(input:checked)::before {
+  transform: rotate(25deg) translate(0, calc(var(--bar-height) / -2));
 }
 
 .hamburger-menu:has(input:checked)::after {
-  rotate: -45deg;
-  width: var(--x-width);
-  translate: 0 calc(var(--bar-height) / 2);
+  transform: rotate(-25deg) translate(0, calc(var(--bar-height) / -2));
+
 }
 
 .hamburger-menu input:checked {
@@ -94,31 +90,35 @@ body {
 }
 
 .nav-bar {
-  position: fixed;    /*Sørge for at navbar er konstant*/
+  position: fixed;  /*Sørge for at navbar er konstant*/
   top: 0;
-  left: 10; 
-  z-index: 10; 
+  left: 0;
+  z-index: 10;
 }
 
+
 .sidebar {
-  transition: translate var(--animation-timing);
-  translate: -100%;
-  padding: 0.5rem 0rem;
+  transition: transform var(--animation-timing); /* Animere transform property */
+  transform: translateX(-100%); /*fjerner sidebar off screen under no-check */
+  padding: 0.5rem 0;
   padding-top: calc(var(--hamburger-height) + var(--hamburger-margin) + 1rem);
   background-color: var(--yellow);
   color: var(--white);
   min-height: 100vh;
   margin-right: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: fit-content;
 }
 
-/* Forklaring af hvad linjen nedenfor target: hvis vi har en burgermenu der har en input som er checked ville sidebar blive selected*/
+/* Når sidebar er checked */
 .hamburger-menu:has(input:checked) + .sidebar {
-  translate: 0;
+  transform: translateX(0); /* Slider sidebar til synlighed */
 }
 
-/* Navbar css */
-
-nav ul{                  /*Styling af navigationsbar*/
+/*Styling af navigationsbar*/
+nav ul {
   list-style: none;
   width: 100%;
   display: flex;
@@ -126,12 +126,12 @@ nav ul{                  /*Styling af navigationsbar*/
   flex-direction: column;
 }
 
-nav ul li{               /*Definere position af navigationsbar listitem*/
+nav ul li {     /*Definere position af navigationsbar listitem*/
   position: relative;
-  padding: 1.5 1.5rem;
+  padding: 0.2rem 1.5rem;
 }
 
-nav ul li a{             /*Styling af links i navigationsbar*/
+nav ul li a {    /*Styling af links i navigationsbar*/
   text-decoration: none;
   font-size: 1.55rem;
   padding: 1.5rem;
@@ -140,53 +140,55 @@ nav ul li a{             /*Styling af links i navigationsbar*/
   background: var(--yellow);
 }
 
-nav ul li a:hover{       /*Styling af navigationsbar under hover tilstand*/
+nav ul li a:hover {     /*Styling af navigationsbar under hover tilstand*/
   background: var(--dark-grey);
   color: var(--yellow);
 }
 
-nav ul li ul{            /*Styling af dropdown menu i navbar*/
-  position: static;      /*Sørg for at dropdown menu ikke overlapper eksisterende links*/
-  display: block;
+nav ul li ul {          /*Styling af dropdown menu i navbar*/
+  position: static;     /*Sørg for at dropdown menu ikke overlapper eksisterende links*/
   display: none;        /*gør dropdown menu usynlig*/
   z-index: 10;          /*Styrer stablingrækkefølge højere værdi ligger øverst, i denne tilfælde ligger alt under ul øverst for alle andre elementer*/
 }
 
-nav ul li ul li{         /*Styling af list item i dropdown menu*/
+nav ul li ul li {       /*Styling af list item i dropdown menu*/
   width: 100%;
   border-top: 0.5px solid var(--dark-grey);
 }
 
 nav ul li:focus-within > ul,
-nav ul li:hover > ul{     /*Definere display af dropdown menu på hover eller fokus*/
+nav ul li:hover > ul {  /*Definere display af dropdown menu på hover eller fokus*/
   display: block;
-  z-index: 10;                     /*Styrer stablingrækkefølge højere værdi ligger øverst, i denne tilfælde ligger alt under ul øverst for alle andre elementer*/
+  z-index: 10;
 }
 
-header{
+header {
   background-image: url(../img/header-bg.webp);
   background-size: cover;
   height: 15.625rem;
 }
 
-header img{
+header img {
   width: 25rem;
   padding-top: 3rem;
 }
 
-h2, h3, p, h4{
+h2,
+h3,
+p,
+h4 {
   font-family: futura-pt, sans-serif;
   font-weight: 800;
   font-style: normal;
 }
 
-p{
+p {
   font-size: 1.5rem;
   font-weight: 200;
   color: var(--dark-grey);
 }
 
-h2{
+h2 {
   width: fit-content;
   box-shadow: 20px 20px rgb(31, 31, 31);
   background-color: var(--yellow);
@@ -195,64 +197,64 @@ h2{
   margin-left: 3rem;
 }
 
-h3{
+h3 {
   font-size: 2rem;
   margin: 0;
 }
 
-#om-os{
-display: flex;
-flex-direction: row-reverse;
-align-items: center;
-background-image: url(../img/radar-bg.webp);
-height: 20rem;
-}
-
-#om-os img{
+#om-os {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  background-image: url(../img/radar-bg.webp);
   height: 20rem;
 }
 
-main{
+#om-os img {
+  height: 20rem;
+}
+
+main {
   min-height: 100vh;
 }
 
-#om-os p{
+#om-os p {
   color: var(--white);
   padding: 5px;
   margin-left: 90px;
 }
 
-#om-os span{
+#om-os span {
   display: block;
   padding-top: 20px;
 }
 
-#billet-info{
-  background-image: url(../img/beton-graa.webp) ;
+#billet-info {
+  background-image: url(../img/beton-graa.webp);
   height: fit-content;
   padding: 1rem 0 0 0;
 }
 
-#billet-info img{
+#billet-info img {
   width: 40%;
   height: fit-content;
 }
 
-.title{
+.title {
   font-weight: bold;
 }
 
-#billet-info p{
+#billet-info p {
   margin: 1rem 3rem;
   color: var(--yellow);
 }
 
-#billet-content{
+#billet-content {
   display: flex;
   margin-top: 3rem;
 }
 
-#billet-content span{
+#billet-content span {
   display: block;
   margin-top: 1.5rem;
 }
@@ -261,7 +263,7 @@ main{
   background-color: var(--light-grey);
   padding: 1rem;
   display: flex;
-  flex-direction: column; /* Stack content vertically on smaller screens */
+  flex-direction: column;
   gap: 1rem;
   position: relative;
   overflow: hidden;
@@ -274,26 +276,25 @@ main{
 
 #rec img {
   position: absolute;
-  max-width: 100%; /* Sørg for at billedet er responsive ved at give den en max-width med % */
+  max-width: 100%;  /* Sørg for at billedet er responsive ved at give den en max-width med % */
   width: 40rem;
   top: 2%;
   left: 75%;
 }
 
-#rec p{
+#rec p {
   margin: 1.5rem 0 0 0;
 }
 
-#rec h2{
+#rec h2 {
   margin: 0;
 }
 
-#rec section{
+#rec section {
   padding-left: 2rem;
-
 }
 
-footer{
+footer {
   background-image: url(../img/papir-bg-gul.webp);
   background-repeat: no-repeat;
   background-size: cover;
@@ -303,22 +304,22 @@ footer{
   flex-direction: row;
   justify-content: space-between;
 }
-  
-#logo{
+
+#logo {
   height: 16rem;
 }
-  
-footer p{
+
+footer p {
   font-weight: 500;
 }
 
-#some-link{
+#some-link {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-#some-link img{
+#some-link img {
   max-width: 3.5rem;
   margin: 1rem;
 }
@@ -331,28 +332,26 @@ footer p{
   overflow: hidden;
 }
 
-#live-arkiv aside{
+#live-arkiv aside {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
 }
 
-#live-arkiv img{
+#live-arkiv img {
   margin-top: 4%;
   height: 20rem;
   width: 100%;
-  transition: transform 0.3s ease-in-out;           /* animation for senere hover effekt */
+  transition: transform 0.3s ease-in-out;   /* animation for senere hover effekt */
 }
 
-#live-arkiv img:hover{
+#live-arkiv img:hover {
   cursor: pointer;
-  transform: scale(1.1);                            /* ved at hover skallere billedet 110% størrer*/
+  transform: scale(1.1);                    /* ved at hover skallere billedet 110% størrer*/
 }
 
-/* Medium screens (tablets) - max 1024px */
-@media screen and (max-width: 1160px) {
-
+@media screen and (max-width: 1160px) {     /* mellem skærme (tablets) - max 1024px */
   header img {
     max-width: 25rem;
   }
@@ -363,51 +362,48 @@ footer p{
     text-align: center;
   }
 
-  #om-os img{
+  #om-os img {
     display: none;
   }
 
-  #om-os p{
+  #om-os p {
     height: fit-content;
     font-size: 1.3rem;
   }
 
-  h2{
+  h2 {
     font-size: 2rem;
     padding: 1rem;
   }
 
-  h3{
+  h3 {
     font-size: 1.5rem;
   }
 
-  h4{
+  h4 {
     font-size: 1rem;
   }
 
-  .slider{
+  .slider {
     width: 100%;
   }
 
-  #rec img{
+  #rec img {
     top: 49%;
     left: 65%;
     width: 35rem;
     z-index: -0;
   }
 
-  #live-arkiv aside{
+  #live-arkiv aside {
     flex-direction: column;
   }
-
 }
 
-/* Small screens (mobile) - max 768px */
-@media screen and (max-width: 768px) {
-  body{
+@media screen and (max-width: 768px) {  /* mindre skærme (mobile) - max 768px */
+  body {
     width: fit-content;
   }
-
 
   #om-os {
     flex-direction: column;
@@ -424,15 +420,13 @@ footer p{
     display: none;
   }
 
-  #billet-content{
+  #billet-content {
     flex-direction: column;
     align-items: center;
   }
 }
 
-
-/* Extra small screens (mobile phones) - max 480px */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 480px) {  /* Extra lille skærme (mobile phones) - max 480px */
   body {
     font-size: 12px;
   }
@@ -453,7 +447,7 @@ footer p{
     margin: auto;
   }
 
-  #billet-info img{
+  #billet-info img {
     display: none;
   }
 }

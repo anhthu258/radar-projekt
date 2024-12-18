@@ -2,10 +2,8 @@
 *::after,
 *::before {
   box-sizing: border-box;
-}
-
-body {
   margin: 0;
+  padding: 0;
 }
 
 :root {
@@ -71,15 +69,12 @@ body {
 }
 
 .hamburger-menu:has(input:checked)::before {
-  rotate: 45deg;
-  width: var(--x-width);
-  translate: 0 calc(var(--bar-height) / -2);
+  transform: rotate(25deg) translate(0, calc(var(--bar-height) / -2));
 }
 
 .hamburger-menu:has(input:checked)::after {
-  rotate: -45deg;
-  width: var(--x-width);
-  translate: 0 calc(var(--bar-height) / 2);
+  transform: rotate(-25deg) translate(0, calc(var(--bar-height) / -2));
+
 }
 
 .hamburger-menu input:checked {
@@ -90,23 +85,27 @@ body {
 .nav-bar {
   position: fixed;
   top: 0;
-  left: 10;
+  left: 0;
   z-index: 10;
 }
 
 .sidebar {
-  transition: translate var(--animation-timing);
-  translate: -100%;
+  transition: transform var(--animation-timing);
+  transform: translateX(-100%);
   padding: 0.5rem 0;
   padding-top: calc(var(--hamburger-height) + var(--hamburger-margin) + 1rem);
   background-color: var(--yellow);
   color: var(--white);
   min-height: 100vh;
   margin-right: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: fit-content;
 }
 
 .hamburger-menu:has(input:checked) + .sidebar {
-  translate: 0;
+  transform: translateX(0);
 }
 
 nav ul {
@@ -119,7 +118,7 @@ nav ul {
 
 nav ul li {
   position: relative;
-  padding: 1.5 1.5rem;
+  padding: 0.2rem 1.5rem;
 }
 
 nav ul li a {
