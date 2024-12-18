@@ -233,7 +233,7 @@ body {
     background-size: cover;
     display: flex;
     align-items: flex-end;
-    height: 16rem;
+    min-height: 16rem;
     flex-direction: row;
     justify-content: space-between;
   }
@@ -243,11 +243,11 @@ body {
   }
     
   footer p{
+    font-size: 1.5rem;
     font-weight: 500;
   }
   
   #some-link{
-    display: flex;
     display: flex;
     justify-content: space-between;
     align-items: center;
